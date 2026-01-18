@@ -1,5 +1,6 @@
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Animacion from '../Componentes/Animacion.jsx'; 
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -36,8 +37,8 @@ const Home = () => {
 
           {/* --- BOTONES DE ACCIÓN --- */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a 
-              href="/DJVPortFolio/proyectos" 
+            <Link 
+              to="/proyectos" 
               className="group relative px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-black transition-all hover:scale-105 active:scale-95 overflow-hidden shadow-xl shadow-indigo-500/10"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -45,14 +46,14 @@ const Home = () => {
                 Mirar mis Proyectos
                 <ArrowRightIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </span>
-            </a>
+            </Link>
             
-            <a 
-              href="/DJVPortFolio/contacto" 
+            <Link 
+              to="/contacto" 
               className="text-sm font-black uppercase tracking-widest text-slate-500 hover:text-indigo-500 transition-colors border-b-2 border-transparent hover:border-indigo-500 pb-1"
             >
               Contactar conmigo
-            </a>
+            </Link>
           </div>
         </div>
 

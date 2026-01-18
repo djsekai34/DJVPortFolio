@@ -56,7 +56,7 @@ const Contacto = () => {
             {/* --- BLOQUE IZQUIERDO: CONTACTO DIRECTO --- */}
             <div className="space-y-8">
               <p className="text-xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed italic">
-                "Si tienes una idea, una propuesta de colaboración o simplemente quieres saludar, mi bandeja de entrada está abierta para ti."
+                "Si tienes una idea, una propuesta de colaboración no dudes en contactar conmigo, mi bandeja de entrada está abierta para ti."
               </p>
 
               <div className="space-y-6">
