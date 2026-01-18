@@ -1,4 +1,4 @@
-# 🎮 💻 David Jiménez | Portfolio Pro
+# 🎮  David Jiménez | Portfolio Personal 💻
 
 <p align="center">
   <img src="https://img.shields.io/badge/REACT-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
