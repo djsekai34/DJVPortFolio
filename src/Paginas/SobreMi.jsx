@@ -8,7 +8,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 import Animacion from '../Componentes/Animacion.jsx'; 
-import fotoDavid from '../imagenes/Foto_David_Jimenez.jpg'; 
+import fotoDavid from '../imagenes/FotoDavidJimenez.jpg'; 
 import miCV from '../CV/CV_DavidJimenezVillena.pdf';
 
 // --- COMPONENTES DE ICONOS PERSONALIZADOS (SVG) ---
