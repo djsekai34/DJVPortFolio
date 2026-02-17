@@ -16,7 +16,7 @@ const Proyectos = () => {
       tecnologias: ["Unity", "C#", "VR"],
       enlaces: {
         github: "https://github.com/djsekai34/Afterbit",
-        web: "https://djsekai34.github.io/Afterbit/"
+        web: "https://afterbit.vercel.app"
       },
       destacado: true
     },
