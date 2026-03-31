@@ -21,7 +21,7 @@ const Trabajos = () => {
     {
       puesto: "Becario",
       empresa: "Forsy",
-      period: "04/2022 - 06/2022",
+      periodo: "04/2022 - 06/2022",
       descripcion: "Desempeñé el rol de becario en Forsy, donde adquiri las comptencias de como reparar un equipo, solucionar fallos de los equipos tambien desmonte y monte equipo e impresoras, ayudando tambien a niños pequeños con la informatica.",
       color: "from-slate-500 to-slate-700"
     }

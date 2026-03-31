@@ -1,25 +1,31 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { EnvelopeIcon, ChatBubbleLeftRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import { EnvelopeIcon, ChatBubbleLeftRightIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa'; 
 import Animacion from '../Componentes/Animacion.jsx';
 
 const Contacto = () => {
-  // --- ESTADOS Y REFERENCIAS ---
   const formRef = useRef();
-  const [enviado, setEnviado] = useState(false);
-  const [honeypot, setHoneypot] = useState(""); // Campo trampa para bots
+  const [estado, setEstado] = useState('reposo'); 
+  const [honeypot, setHoneypot] = useState(""); 
   const miEmail = "davidjimenezvillena@gmail.com";
 
-  // --- LÓGICA DE ENVÍO CON EMAILJS ---
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // Validación Anti-Bot
     if (honeypot !== "") {
-      setEnviado(true); 
+      setEstado('exito'); 
       return;
     }
+
+    setEstado('enviando');
+
+    // LOG DE CONTROL: Para ver si Vite está cargando las variables antes de enviar
+    console.log("Intentando enviar con:", {
+      service: import.meta.env.VITE_EMAILJS_SERVICE_ID ? "OK" : "MISSING",
+      template: import.meta.env.VITE_EMAILJS_TEMPLATE_ID ? "OK" : "MISSING",
+      public_key: import.meta.env.VITE_EMAILJS_PUBLIC_KEY ? "OK" : "MISSING"
+    });
 
     emailjs.sendForm(
       import.meta.env.VITE_EMAILJS_SERVICE_ID, 
@@ -27,14 +33,16 @@ const Contacto = () => {
       formRef.current, 
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     )
-    .then((result) => {
-        console.log("Mensaje enviado:", result.text);
-        setEnviado(true);
+    .then(() => {
+        setEstado('exito');
         formRef.current.reset();
-        setTimeout(() => setEnviado(false), 5000);
+        setTimeout(() => setEstado('reposo'), 5000);
     }, (error) => {
-        console.log("Error al enviar:", error.text);
-        alert("Hubo un error al enviar el mensaje, por favor inténtalo de nuevo.");
+        // SACAMOS EL ERROR POR CONSOLA PARA TI
+        console.error("DETALLES DEL ERROR:", error);
+        
+        setEstado('error');
+        setTimeout(() => setEstado('reposo'), 5000);
     });
   };
 
@@ -43,7 +51,6 @@ const Contacto = () => {
       <section id="contacto" className="py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6">
           
-          {/* --- CABECERA SECCIÓN --- */}
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white mb-4">
               ¿Hablamos de un <span className="text-indigo-500">Proyecto?</span>
@@ -53,7 +60,6 @@ const Contacto = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
-            {/* --- BLOQUE IZQUIERDO: CONTACTO DIRECTO --- */}
             <div className="space-y-8">
               <p className="text-xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed italic">
                 "Si tienes una idea, una propuesta de colaboración no dudes en contactar conmigo, mi bandeja de entrada está abierta para ti."
@@ -92,11 +98,9 @@ const Contacto = () => {
               </div>
             </div>
 
-            {/* --- BLOQUE DERECHO: FORMULARIO DE CONTACTO --- */}
             <div className="bg-slate-50 dark:bg-slate-900/40 p-8 md:p-10 rounded-[2.5rem] shadow-xl border border-slate-100 dark:border-slate-800">
               <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
                 
-                {/* TRAMPA HONEYPOT */}
                 <div className="hidden">
                   <input 
                     type="text" 
@@ -128,18 +132,29 @@ const Contacto = () => {
                   <textarea name="message" rows="4" placeholder="Cuéntame más detalles..." className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-slate-800 border-none focus:ring-2 focus:ring-indigo-500 dark:text-white outline-none resize-none font-medium" required></textarea>
                 </div>
                 
-                {/* BOTÓN DE ESTADO DINÁMICO */}
                 <button 
                   type="submit"
-                  disabled={enviado}
-                  className={`w-full py-5 font-black rounded-2xl shadow-lg transition-all flex items-center justify-center gap-3 text-sm uppercase tracking-widest ${enviado ? 'bg-green-500 text-white' : 'bg-indigo-500 hover:bg-indigo-600 text-white shadow-indigo-500/30 hover:scale-[1.02] active:scale-95'}`}
+                  disabled={estado !== 'reposo'}
+                  className={`w-full py-5 font-black rounded-2xl shadow-lg transition-all flex items-center justify-center gap-3 text-sm uppercase tracking-widest 
+                    ${estado === 'exito' ? 'bg-green-500 text-white' : 
+                      estado === 'error' ? 'bg-red-500 text-white' : 
+                      estado === 'enviando' ? 'bg-slate-400 text-white cursor-wait' :
+                      'bg-indigo-500 hover:bg-indigo-600 text-white shadow-indigo-500/30 hover:scale-[1.02] active:scale-95'}`}
                 >
-                  {enviado ? (
+                  {estado === 'enviando' && "Enviando..."}
+                  {estado === 'exito' && (
                     <>
                       <CheckCircleIcon className="h-5 w-5" />
                       ¡Mensaje Enviado!
                     </>
-                  ) : (
+                  )}
+                  {estado === 'error' && (
+                    <>
+                      <XCircleIcon className="h-5 w-5" />
+                      Error al enviar
+                    </>
+                  )}
+                  {estado === 'reposo' && (
                     <>
                       <ChatBubbleLeftRightIcon className="h-5 w-5" />
                       Enviar Propuesta
