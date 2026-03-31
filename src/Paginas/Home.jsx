@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <Animacion>
-      <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden -mt-16">
+      {/* Ajustado a 80vh para reducir el espacio vertical y que no quede tanto hueco */}
+      <section className="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden">
         
         {/* --- ELEMENTOS DECORATIVOS DE FONDO  --- */}
         <div className="absolute top-0 -left-20 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] animate-pulse"></div>
