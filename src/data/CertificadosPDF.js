@@ -10,6 +10,7 @@ import MLPowerBI from '../Certificados/Machine Learning and Artificial Intellige
 import SSAS from '../Certificados/SQL Server Analysis Services (SSAS) desde 0 hasta Experto.pdf';
 import SQLProgramacion from '../Certificados/SQL Server Programando Procedimientos, Triggers y funciones.pdf';
 import B1English from '../Certificados/InglesB1.pdf';
+import FundamentosReact from '../Certificados/certificado_fundamentos_de_react.pdf';
 
 export const certificados = [
   { title: "Azure Data Factory (Completo)", link: AzureDataFactoryFull, tech: "Azure", gradient: "from-sky-400 to-blue-600" },
@@ -23,4 +24,5 @@ export const certificados = [
   { title: "SQL Server: SSAS", link: SSAS, tech: "SQL", gradient: "from-slate-600 to-slate-800" },
   { title: "SQL: Procedimientos y Triggers", link: SQLProgramacion, tech: "SQL", gradient: "from-indigo-500 to-slate-900" },
   { title: "B1 English Cambridge", link: B1English, tech: "English", gradient: "from-green-400 to-emerald-600" },
+  { title: "Fundamentos de React", link: FundamentosReact, tech: "React", gradient: "from-cyan-400 to-blue-600" },
 ];

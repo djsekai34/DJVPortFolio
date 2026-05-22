@@ -3,13 +3,28 @@ import imgAfterbit from "../Imagenes/Afterbit.png";
 import imgTfg from "../Imagenes/TFG_Restaurante.png";
 import imgCesar from "../Imagenes/CifradoCesar.png";
 import imgIntrusion from "../Imagenes/Intrusion.png";
+import imgAGJ from "../Imagenes/AGJ.png";
+import { img } from "framer-motion/client";
 
 export const misProyectos = [
+   {
+    id: "AGJ",
+    titulo: "Andalucia Game Jam",
+    descripcion:
+      "Página web de la Andalucia Game Jam, creada junto a varios compañeros, que introduce el universo de la empresa Eonesia, donde se alojarán videojuegos en HTML. La web y los juegos están ambientados en el Descubrimiento de América, usando esta época histórica como hilo conductor de la experiencia..",
+    imagen: imgAGJ,
+    tecnologias: ["React", "Tailwind", "html5"],
+    enlaces: {
+      github: "https://github.com/djsekai34/AGJCristobalColon",
+      web: "https://agjelglorioso.vercel.app",
+    },
+    destacado: false,
+  },
   {
     id: "Intrusion",
     titulo: "Intrusion",
     descripcion:
-      "Página web del videojuego desarrollado durante el curso de especialización en videojuegos y realidad virtual, creado de forma colaborativa por toda la clase, con una temática centrada en el terror y los puzles.",
+      "Página web del videojuego desarrollado durante el curso de especialización en videojuegos y realidad virtual, creado de forma colaborativa por toda la clase, con una temática centrada en el terror y los puzles la pagina no se pudo finalizar ya que me faltaba imagenes de videojuego que nunca salio por falta de tiempo.",
     imagen: imgIntrusion,
     tecnologias: ["Unity", "C#", "VR"],
     enlaces: {

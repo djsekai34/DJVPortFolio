@@ -6,13 +6,13 @@ const Education = () => {
   // --- LISTADO DE ESTUDIOS Y TRAYECTORIA ACADÉMICA ---
   const studies = [
     {
-      title: "Curso de especialización en videojuegos y realidad virtual",
-      institution: "IES Virgen del Carmen (Jaén)",
-      period: "2025 - actualidad",
-      description: "Actualmente me encuentro estudiando el Curso de Especialización en Videojuegos y Realidad Virtual, donde estoy profundizando en el desarrollo de experiencias interactivas y entornos inmersivos. Durante la formación estoy aprendiendo a programar en C#, aplicando conceptos fundamentales y avanzados orientados al desarrollo de videojuegos. Además, estoy creando proyectos desde cero utilizando Unity, lo que me permite trabajar en todos los aspectos del proceso: desde el diseño de mecánicas y la lógica de juego, hasta la creación de interfaces, animaciones y sistemas de interacción en 2D y 3D. Este curso está reforzando mis habilidades técnicas y creativas",
-      icon: <RocketLaunchIcon className="h-6 w-6" />,
-      current: true
-    },
+  title: "Curso de especialización en videojuegos y realidad virtual",
+  institution: "IES Virgen del Carmen (Jaén)",
+  period: "2025",
+  description: "He finalizado el Curso de Especialización en Videojuegos y Realidad Virtual, donde he profundizado en el desarrollo de experiencias interactivas y entornos inmersivos. Durante la formación he aprendido a programar en C#, aplicando conceptos fundamentales y avanzados orientados al desarrollo de videojuegos. Además, he creado proyectos desde cero utilizando Unity, trabajando en todos los aspectos del proceso: desde el diseño de mecánicas y lógica de juego, hasta la creación de interfaces, animaciones y sistemas de interacción en 2D y 3D. Este curso ha reforzado mis habilidades técnicas y creativas.",
+  icon: <RocketLaunchIcon className="h-6 w-6" />,
+  current: false
+},
     {
       title: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
       institution: "IES Alfonso XI (Alcalá la Real, Jaén)",
