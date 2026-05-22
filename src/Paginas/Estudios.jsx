@@ -8,7 +8,7 @@ const Education = () => {
     {
   title: "Curso de especialización en videojuegos y realidad virtual",
   institution: "IES Virgen del Carmen (Jaén)",
-  period: "2025",
+  period: "2025 - 2026",
   description: "He finalizado el Curso de Especialización en Videojuegos y Realidad Virtual, donde he profundizado en el desarrollo de experiencias interactivas y entornos inmersivos. Durante la formación he aprendido a programar en C#, aplicando conceptos fundamentales y avanzados orientados al desarrollo de videojuegos. Además, he creado proyectos desde cero utilizando Unity, trabajando en todos los aspectos del proceso: desde el diseño de mecánicas y lógica de juego, hasta la creación de interfaces, animaciones y sistemas de interacción en 2D y 3D. Este curso ha reforzado mis habilidades técnicas y creativas.",
   icon: <RocketLaunchIcon className="h-6 w-6" />,
   current: false
