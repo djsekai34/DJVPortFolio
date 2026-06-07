@@ -18,7 +18,7 @@ const Navbar = ({ isDark, setIsDark }) => {
   ];
 
   return (
-    <nav className="fixed w-full z-50 top-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
+    <nav className="fixed w-full z-50 top-0 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300 transform-gpu translate-z-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
@@ -65,6 +65,8 @@ const Navbar = ({ isDark, setIsDark }) => {
             <a
               href={miCV}
               download="CV_DavidJimenezVillena.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all active:scale-95"
             >
               <ArrowDownTrayIcon className="h-4 w-4" />
@@ -94,7 +96,8 @@ const Navbar = ({ isDark, setIsDark }) => {
 
       {/* --- MENÚ DESPLEGABLE MÓVIL --- */}
       {isOpen && (
-        <div className="lg:hidden bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 py-6 px-4 flex flex-col items-center space-y-4">
+        /* AJUSTE AQUÍ: Cambiado bg-white/95 por bg-slate-50/95 para mantener sintonía y evitar saltos visuales */
+        <div className="lg:hidden bg-slate-50/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 py-6 px-4 flex flex-col items-center space-y-4 transform-gpu">
           {navLinks.map((link) => (
             link.href.startsWith('/') ? (
               <Link 
@@ -122,6 +125,9 @@ const Navbar = ({ isDark, setIsDark }) => {
             <a
               href={miCV}
               download="CV_DavidJimenezVillena.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
               className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all active:scale-95"
             >
               <ArrowDownTrayIcon className="h-4 w-4" />

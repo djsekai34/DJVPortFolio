@@ -6,7 +6,7 @@ const Footer = ({ isDark }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full py-5 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 transition-colors duration-300">
+    <footer className="w-full py-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950 transition-colors duration-300 transform-gpu translate-z-0">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           
