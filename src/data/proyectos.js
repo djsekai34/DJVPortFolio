@@ -4,10 +4,23 @@ import imgTfg from "../Imagenes/TFG_Restaurante.png";
 import imgCesar from "../Imagenes/CifradoCesar.png";
 import imgIntrusion from "../Imagenes/Intrusion.png";
 import imgAGJ from "../Imagenes/AGJ.png";
+import imgUAvanzado from "../Imagenes/UnicajaAvanzado.png";
 import { img } from "framer-motion/client";
 
 export const misProyectos = [
-   {
+  {
+    id: "UniAvanzado",
+    titulo: "Unicaja Avanzado",
+    descripcion:
+      "Página web donde podremos conocer estadisticas basicas y avanzadas de los jugadores del Unicaja Baloncesto en la temporada correspondiente, podemos ver graficas de las estadisticas y tambien podemos comparar los jugadores entre si.",
+    imagen: imgUAvanzado,
+    tecnologias: ["React", "Tailwind", "SupaBase"],
+    enlaces: {
+      github: "https://github.com/djsekai34/UnicajaAvanzado",
+      web: "https://unicajaavanzado.vercel.app/",
+    },
+    destacado: false,
+  },{
     id: "AGJ",
     titulo: "Andalucia Game Jam",
     descripcion:
