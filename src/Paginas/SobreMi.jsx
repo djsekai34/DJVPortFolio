@@ -11,6 +11,27 @@ import Animacion from "../Componentes/Animacion.jsx";
 import fotoDavid from "../Imagenes/FotoDavidJimenez.jpg";
 import miCV from "../CV/CV_DavidJimenezVillena.pdf";
 
+const handleDescargarCV = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await fetch(miCV);
+    const blob = await res.blob();
+    const url = URL.createObjectURL(
+      new Blob([blob], { type: "application/pdf" })
+    );
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "CV_DavidJimenezVillena.pdf";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  } catch {
+    // Fallback: abre el PDF en la misma pestaña
+    window.location.href = miCV;
+  }
+};
+
 // --- COMPONENTES DE ICONOS PERSONALIZADOS (SVG) ---
 const GamepadIcon = ({ className }) => (
   <svg
@@ -268,15 +289,16 @@ const About = () => {
 
               {/* BOTÓN DE DESCARGA CV */}
               <div className="mt-10">
-                <a
-                  href={miCV}
-                  download="CV_DavidJimenezVillena.pdf"
-                  className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-black rounded-2xl shadow-lg shadow-indigo-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
-                >
-                  <ArrowDownTrayIcon className="h-5 w-5" />
-                  Descargar CV
-                </a>
-              </div>
+  <a
+    href={miCV}
+    download="CV_DavidJimenezVillena.pdf"
+    onClick={handleDescargarCV}
+    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-black rounded-2xl shadow-lg shadow-indigo-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
+  >
+    <ArrowDownTrayIcon className="h-5 w-5" />
+    Descargar CV
+  </a>
+</div>
             </div>
           </div>
         </div>

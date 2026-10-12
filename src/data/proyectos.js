@@ -4,9 +4,22 @@ import imgTfg from "../Imagenes/TFG_Restaurante.png";
 import imgCesar from "../Imagenes/CifradoCesar.png";
 import imgIntrusion from "../Imagenes/Intrusion.png";
 import imgAGJ from "../Imagenes/AGJ.png";
-import { img } from "framer-motion/client";
+import imgGP from "../Imagenes/GP.png";
 
 export const misProyectos = [
+  {
+    id: "GP",
+    titulo: "Grada Pixel",
+    descripcion:
+      "Página web de periodismo creada para iniciarme en este mundo, donde publico artículos sobre fútbol, baloncesto, lucha libre, motor y videojuegos. Incluye editor de artículos, buscador y formularios con validación, todo desarrollado con React y TypeScript.",
+    imagen: imgGP,
+    tecnologias: ["Tiptap", "Fuse.js", "TypeScript"],
+    enlaces: {
+      github: "https://github.com/djsekai34/GradaPixel",
+      web: "https://gradapixel.vercel.app",
+    },
+    destacado: false,
+  },
    {
     id: "AGJ",
     titulo: "Andalucia Game Jam",
