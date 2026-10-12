@@ -17,6 +17,28 @@ const Navbar = ({ isDark, setIsDark }) => {
     { name: 'Contacto', href: '/contacto' }, 
   ];
 
+ const handleDescargarCV = async (e) => {
+  e.preventDefault();
+  setIsOpen(false);
+  try {
+    const res = await fetch(miCV);
+    const blob = await res.blob();
+    const url = URL.createObjectURL(
+      new Blob([blob], { type: "application/pdf" })
+    );
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "CV_DavidJimenezVillena.pdf";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  } catch {
+    // Fallback: abre el PDF en la misma pestaña
+    window.location.href = miCV;
+  }
+};
+
   return (
     <nav className="fixed w-full z-50 top-0 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300 transform-gpu translate-z-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,15 +85,14 @@ const Navbar = ({ isDark, setIsDark }) => {
 
             {/* BOTÓN DESCARGA CV */}
             <a
-              href={miCV}
-              download="CV_DavidJimenezVillena.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all active:scale-95"
-            >
-              <ArrowDownTrayIcon className="h-4 w-4" />
-              CV
-            </a>
+  href={miCV}
+  download="CV_DavidJimenezVillena.pdf"
+  onClick={handleDescargarCV}
+  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all active:scale-95"
+>
+  <ArrowDownTrayIcon className="h-4 w-4" />
+  CV
+</a>
 
             {/* BOTÓN TOGGLE MODO OSCURO */}
             <button
@@ -122,18 +143,16 @@ const Navbar = ({ isDark, setIsDark }) => {
           
           {/* CV MÓVIL */}
           <div className="pt-2 w-full flex justify-center">
-            <a
-              href={miCV}
-              download="CV_DavidJimenezVillena.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all active:scale-95"
-            >
-              <ArrowDownTrayIcon className="h-4 w-4" />
-              CV
-            </a>
-          </div>
+  <a
+    href={miCV}
+    download="CV_DavidJimenezVillena.pdf"
+    onClick={handleDescargarCV}
+    className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all active:scale-95"
+  >
+    <ArrowDownTrayIcon className="h-4 w-4" />
+    CV
+  </a>
+</div>
         </div>
       )}
     </nav>
